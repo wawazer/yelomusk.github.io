@@ -1215,7 +1215,7 @@ Produk Galeri disini
 .product-active-lg-4 .slick-arrow,
 .product-two-row-4 .slick-arrow {
     font-size: 20px;
-    position: absolute;
+    /* position: absolute; */
     top: 50%;
     left: 15px;
     right: auto;
@@ -1358,9 +1358,9 @@ Produk Galeri disini
     border-right: 1px solid #dedede;
     border-bottom: 1px solid #dedede;
     border-radius: 0 0 0.25rem 0.25rem;
-    display: flex;
+    /* display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-between; */
     transition: 0.15s ease;
     background-color: #FFF;
 }
@@ -1445,7 +1445,9 @@ Produk Galeri disini
 
 .container-flex {
     display: flex;
-    justify-content: space-between;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
 }
 
 .porduct-area .single-product-wrap {
@@ -1728,4 +1730,137 @@ Produk Galeri disini
 
 .bg-image {
     background-size: cover;
+}
+
+
+/*COMPARE TABLE*/
+
+
+/* Component: Table */
+
+.compare__wrapper {
+    margin: 0 auto;
+}
+
+.compare__table {
+    width: 100%;
+    /* max-width: calc(var(--table-column-width) * var(--table-columns-visible)); */
+    margin: 0 auto;
+    --table-gap: 1.25rem;
+    --table-columns: 5;
+    --table-columns-visible: 4;
+    --table-column-width: 250px;
+}
+
+.compare__cell {
+    display: flex;
+    flex-direction: column;
+    padding: var(--table-gap);
+    border-bottom: 1px solid var(--color-light-secondary);
+}
+
+
+/* .compare__cell.--sticky {
+    position: sticky;
+    left: 0;
+} */
+
+.compare__cell.--header {
+    background-color: var(--color-light);
+}
+
+.compare__cell.--spacer {
+    background-color: white;
+}
+
+.compare__cell.--brand h2 {
+    color: var(--color-dark-secondary);
+    margin: 0;
+}
+
+.compare__text {
+    margin: 0;
+}
+
+.compare__text.--label {
+    color: var(--color-dark);
+    font-weight: bold;
+}
+
+.compare__text.--caption {
+    display: block;
+    color: var(--color-light-secondary);
+}
+
+.compare__text.--number {
+    font-size: 1rem;
+    width: 2rem;
+    height: 2rem;
+    line-height: 30px;
+    border: 1px solid var(--color-dark);
+    border-radius: 50%;
+    box-sizing: content-box;
+    text-align: center;
+}
+
+.compare__grid {
+    display: grid;
+    grid-template-columns: repeat(var(--table-columns), minmax(var(--table-column-width), 1fr));
+}
+
+.compare__header {
+    background-color: white;
+    position: static;
+    top: 0;
+}
+
+.compare__footer {
+    box-shadow: none;
+}
+
+.compare__button {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    font-size: 0.875rem;
+    text-align: center;
+}
+
+.compare__button.--cta {
+    font-weight: bold;
+    background-color: var(--color-key);
+    padding: 1rem 1.25rem;
+}
+
+.compare__button.--cta:hover {
+    opacity: 0.8;
+}
+
+@media screen and (max-width: 479px) {
+    .compare__header,
+    .compare__footer {
+        display: none;
+    }
+    .compare__table {
+        --table-columns: 2;
+        --table-column-width: auto;
+    }
+    .compare__cell.--header {
+        grid-column: 1/-1;
+    }
+    .compare__cell::before {
+        content: attr(aria-label);
+        font-weight: normal;
+        line-height: 2rem;
+        color: var(--color-light-secondary);
+    }
+}
+
+:root {
+    --color-dark: #202529;
+    --color-dark-secondary: #272727;
+    --color-key: #ffc91f;
+    --color-key-secondary: #caae87;
+    --color-light: #f0f0f0;
+    --color-light-secondary: #808080;
 }
